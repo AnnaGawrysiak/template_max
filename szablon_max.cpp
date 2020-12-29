@@ -10,31 +10,15 @@ SprawdŸ specjalizacjê z tablic¹ piêciu ³añcuchów.
 #include <string>
 
 using namespace std;
-/*
-template <typename T1, typename T2>
-T1 maxn( T1 arr[], T2 size_)
+
+
+template <typename T>
+T maxn( T arr[], int size_)
 {
 
- T1 *the_longest = &arr[0];
+ T *the_longest = &arr[0];
 
- for (T2 i = 0; i < size_; i++)
- {
-     if (arr[i] > *(the_longest))
-        the_longest = &arr[i];
- }
-
- return the_longest;
-
-}
-*/
-
-template <typename T1, typename T2>
-T1 maxn( T1 arr[], T2 size_)
-{
-
- T1 *the_longest = &arr[0];
-
- for (T2 i = 0; i < size_; i++)
+ for (int i = 0; i < size_; i++)
  {
      if (arr[i] > *(the_longest))
         the_longest = &arr[i];
@@ -44,6 +28,23 @@ T1 maxn( T1 arr[], T2 size_)
 
 }
 
+template <>
+char* maxn<char>(char arr[], int size_)
+{
+
+char *the_longest = &arr[0];
+
+ for (int i = 0; i < size_; i++)
+ {
+     if (arr[i] > *(the_longest))
+        the_longest = &arr[i];
+ }
+
+ return the_longest;
+
+}
+
+
 
 int main()
 {
@@ -52,9 +53,18 @@ const int size = 5;
 
 int array_of_ints[size] = {1, 2, 5, 6, 1};
 
-cout << " The longest element of the array: "  << &maxn(array_of_ints, size) << endl;
 
+cout << " The longest element of the array of integers: "  << maxn(array_of_ints, size) << endl;
 
+const int size_ = 4;
+
+double array_of_doubles[size_] = {45, 23, 34, 47};
+
+cout << " The longest element of the array of doubles: "  << maxn(array_of_doubles, size_) << endl;
+
+char array_of_chars[size] = {'a', 'f', 'j', 's', 'h'};
+
+cout << " The longest element of the array of doubles: "  << maxn(array_of_chars, size_) << endl;
 
 return 0;
 }
