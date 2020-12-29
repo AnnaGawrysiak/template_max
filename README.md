@@ -1,0 +1,2 @@
+# template_maxn
+Napisz szablon funkcji maxn() pobierającej jako parametry tablicę typu T oraz liczbę elementów tej tablicy, zwracającej największy element tablicy. Przetestuj w programie 5-elementową tablicę wartości int i 4-elementową tablicę double. Program powinien korzystać ze specjalizacji przyjmującej jako parametr tablicę typu char, zwracającej adres najdłuższego napisu. Jeśli jest kilka najdłuższych łańcuchów, funkcja powinna zwracać adres pierwszego z nich. Sprawdź specjalizację z tablicą pięciu łańcuchów.
