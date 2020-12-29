@@ -7,7 +7,7 @@ Jeœli jest kilka najd³u¿szych ³añcuchów, funkcja powinna zwracaæ adres pierwszeg
 SprawdŸ specjalizacjê z tablic¹ piêciu ³añcuchów.
 */
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -28,23 +28,25 @@ T maxn( T arr[], int size_)
 
 }
 
-template <>
-char* maxn<char>(char arr[], int size_)
+
+
+char* maxn(char* arr[], int size_)
 {
 
-char *the_longest = &arr[0];
+if(size_ == 0)
+    return nullptr;
+
+char *the_longest = arr[0];
 
  for (int i = 0; i < size_; i++)
  {
-     if (arr[i] > *(the_longest))
-        the_longest = &arr[i];
+     if (strlen( arr[i]) > strlen(the_longest))
+        the_longest = arr[i];
  }
 
  return the_longest;
 
 }
-
-
 
 int main()
 {
@@ -62,9 +64,20 @@ double array_of_doubles[size_] = {45, 23, 34, 47};
 
 cout << " The longest element of the array of doubles: "  << maxn(array_of_doubles, size_) << endl;
 
-char array_of_chars[size] = {'a', 'f', 'j', 's', 'h'};
+const char *arrText[size] =
+    {
+        "Berlin",
+        "Frankfurt",
+        "Drezno",
+        "Monachium",
+        "Brema"
+    };
 
-cout << " The longest element of the array of doubles: "  << maxn(array_of_chars, size_) << endl;
+//char array_of_chars[size] = {'a', 'j', 'k', 's', 'h'};
+
+cout << " The longest element of the array of chars: "  << maxn(arrText, size_) << endl;
+
+//cout << " The longest element of the array of chars: "  << maxn(array_of_chars, size_) << endl;
 
 return 0;
 }
