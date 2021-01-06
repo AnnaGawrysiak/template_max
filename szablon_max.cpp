@@ -8,6 +8,7 @@ SprawdŸ specjalizacjê z tablic¹ piêciu ³añcuchów.
 */
 #include <iostream>
 #include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -28,19 +29,17 @@ T maxn( T arr[], int size_)
 
 }
 
-
-
-char* maxn(char* arr[], int size_)
+string maxn(string arr[], int size_)
 {
 
 if(size_ == 0)
     return nullptr;
 
-char *the_longest = arr[0];
+string the_longest = arr[0];
 
- for (int i = 0; i < size_; i++)
+ for (int i = 0; i <= size_; i++)
  {
-     if (strlen( arr[i]) > strlen(the_longest))
+     if (arr[i].size() > the_longest.size())
         the_longest = arr[i];
  }
 
@@ -64,13 +63,13 @@ double array_of_doubles[size_] = {45, 23, 34, 47};
 
 cout << " The longest element of the array of doubles: "  << maxn(array_of_doubles, size_) << endl;
 
-const char *arrText[size] =
+string arrText[size] =
     {
         "Berlin",
-        "Frankfurt",
+        "Brema",
         "Drezno",
         "Monachium",
-        "Brema"
+        "Tuszetia",
     };
 
 //char array_of_chars[size] = {'a', 'j', 'k', 's', 'h'};
